@@ -1,5 +1,8 @@
 <h3>{{hero.name}}</h3>
-<h4>{{avgAge}}</h4>
+<p>
+  sum age: {{sumAge}}
+  average age: {{props.avgAge}}<br>
+</p>
 <div>
   <strong>{{hero.age}}</strong>
   <button (click)="makeOlder()">Make older</button>

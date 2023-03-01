@@ -10,7 +10,8 @@ export class HeroComponent implements OnInit {
   @Output() onMakeOlder = new EventEmitter<string>();
   @Output() onMakeYounger = new EventEmitter<string>();
   @Input() hero!: Hero;
-  @Input() avgAge!: number;
+  @Input() props!: { avgAge: number };
+  @Input() sumAge!: number;
 
   constructor() { }
 

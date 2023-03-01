@@ -11,7 +11,8 @@ export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   group = {
     members: {
-      avgAge: 3,
+      avgAge: 0,
+      sumAge: 0,
     }
   }
 
@@ -23,7 +24,7 @@ export class HeroesComponent implements OnInit {
 
     console.log('hero make older', hero)
     hero.age += change;
-    this.calcAvgAge();
+    this.calcStats();
   }
 
   makeOlder(heroName: string) {
@@ -34,9 +35,10 @@ export class HeroesComponent implements OnInit {
     this.changeAge(heroName, -1);
   }
 
-  calcAvgAge() {
-
-    this.group.members.avgAge = this.heroes.reduce((acc, { age }) => acc + age, 0) / this.heroes.length;
+  calcStats() {
+    const sumAge = this.heroes.reduce((acc, { age }) => acc + age, 0);
+    this.group.members.sumAge = sumAge;
+    this.group.members.avgAge = sumAge / this.heroes.length;
   }
 
   ngOnInit(): void {
@@ -53,7 +55,9 @@ export class HeroesComponent implements OnInit {
         name: 'baz',
         age: 42,
       },
-    ]
+    ];
+
+    this.calcStats();
   }
 
 }
