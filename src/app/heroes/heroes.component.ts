@@ -29,7 +29,7 @@ export class HeroesComponent implements OnInit {
 
   calcAvgAge() {
 
-    this.group.members.avgAge = this.heroes.reduce((acc, { age }) => acc + age, 0);
+    this.group.members.avgAge = this.heroes.reduce((acc, { age }) => acc + age, 0) / this.heroes.length;
   }
 
   ngOnInit(): void {
