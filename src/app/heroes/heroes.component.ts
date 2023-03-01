@@ -17,14 +17,21 @@ export class HeroesComponent implements OnInit {
 
   constructor() { }
 
-  makeOlder(heroName: string) {
-    console.log('make older', heroName);
+  private changeAge(heroName: string, change: number) {
     const hero = this.heroes.find((hero) => hero.name === heroName);
     if (!hero) return;
 
     console.log('hero make older', hero)
-    hero.age += 1;
+    hero.age += change;
     this.calcAvgAge();
+  }
+
+  makeOlder(heroName: string) {
+    this.changeAge(heroName, 1);
+  }
+
+  makeYounger(heroName: string) {
+    this.changeAge(heroName, -1);
   }
 
   calcAvgAge() {

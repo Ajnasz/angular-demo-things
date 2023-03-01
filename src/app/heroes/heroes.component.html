@@ -1,4 +1,10 @@
 <h2>{{group.members.avgAge}}</h2>
 <ul>
-  <li *ngFor="let hero of heroes"><app-hero [hero]="hero" [avgAge]="group.members.avgAge" (onMakeOlder)="makeOlder($event)"></app-hero></li>
+  <li *ngFor="let hero of heroes">
+    <app-hero
+      [hero]="hero"
+      [avgAge]="group.members.avgAge"
+      (onMakeOlder)="makeOlder($event)"
+      (onMakeYounger)="makeYounger($event)"
+    ></app-hero></li>
 </ul>

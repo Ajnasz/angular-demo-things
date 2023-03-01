@@ -8,14 +8,18 @@ import { Hero } from './hero.type';
 })
 export class HeroComponent implements OnInit {
   @Output() onMakeOlder = new EventEmitter<string>();
+  @Output() onMakeYounger = new EventEmitter<string>();
   @Input() hero!: Hero;
   @Input() avgAge!: number;
 
   constructor() { }
 
   makeOlder() {
-    console.log('click', this.hero.name);
     this.onMakeOlder.next(this.hero.name);
+  }
+
+  makeYounger() {
+    this.onMakeYounger.next(this.hero.name);
   }
 
   ngOnInit(): void {
